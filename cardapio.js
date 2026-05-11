@@ -40,11 +40,15 @@ function calcularComDesconto(total, clienteObj) {
     return total;
 }
 
-function exibirPedido(listaPedido) {
+function exibirPedido(listaPedido, clienteObj) {
     console.log("=== SEU PEDIDO ===");
     console.log(`1. ${listaPedido[0].nome} - R$ ${listaPedido[0].preco}`);
     console.log(`2. ${listaPedido[1].nome} - R$ ${listaPedido[1].preco}`);
     console.log(`TOTAL: R$ ${calcularTotal(listaPedido)}`);
+
+    let subtotal = calcularTotal(listaPedido) //Calcular o bruto
+    let totalFinal = calcularComDesconto(subtotal, clienteObj); //Aplica o desconto
+    console.log(`TOTAL FINAL : R$ ${totalFinal}`)
 }
 
 exibirCardapio(cardapio);
